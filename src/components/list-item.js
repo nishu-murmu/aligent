@@ -1,17 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HStack, Box, Image, Heading } from "@chakra-ui/react";
 
 const ListItem = (props) => {
   const [data, setData] = useState([]);
 
-  const getAPI = async () => {
-    const response = await fetch(
-      "http://www.omdbapi.com/?apikey=56cfe5f5&t=" + props.input
-    );
-    const value = await response.json();
-    setData(value);
-  };
-  getAPI();
+  useEffect(() => {
+    const getAPI = async () => {
+      const response = await fetch(
+        "http://www.omdbapi.com/?apikey=56cfe5f5&t=" + props.input
+      );
+      const value = await response.json();
+      setData(value);
+    };
+    getAPI();
+  }, [setData, props.input]);
 
   return (
     <HStack>

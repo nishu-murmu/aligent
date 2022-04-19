@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   HStack,
@@ -15,15 +15,17 @@ import { AddIcon } from "@chakra-ui/icons";
 const Display = (props) => {
   const [data, setData] = useState([]);
 
-  const getAPI = async () => {
-    const response = await fetch(
-      "http://www.omdbapi.com/?apikey=56cfe5f5&t=" + props.input
-    );
-    const value = await response.json();
-    setData(value);
-  };
-  getAPI();
-  console.log(data);
+  useEffect(() => {
+    const getAPI = async () => {
+      const response = await fetch(
+        "http://www.omdbapi.com/?apikey=56cfe5f5&t=" + props.input
+      );
+      const value = await response.json();
+      setData(value);
+    };
+    console.log(data);
+    getAPI();
+  }, [props.input, setData]);
 
   return (
     <VStack className="display" height="100vh">
