@@ -18,6 +18,7 @@ const ListItem = (props) => {
   return (
     <HStack>
       <Image
+        alt="Movie/Series Poster"
         borderRadius="15px"
         src={data.Poster}
         height="120px"

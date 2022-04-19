@@ -32,6 +32,7 @@ const Display = (props) => {
     <VStack className="display" height="100vh">
       <HStack padding="20px">
         <Image
+          alt="Movie/Series Poster"
           defaultValue="Movie/Series Poster"
           borderRadius="15px"
           src={data.Poster}
