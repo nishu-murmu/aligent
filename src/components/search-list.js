@@ -16,7 +16,7 @@ const SearchList = (props) => {
         results
       </Box>
       <List marginTop="40px">
-        <ListItem />
+        <ListItem input={props.input} />
       </List>
     </Box>
   );

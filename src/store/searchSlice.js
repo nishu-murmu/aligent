@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialSearchState = { value: "nishu" };
+const initialState = {};
 
 const searchSlice = createSlice({
   name: "search",
-  initialState: initialSearchState,
+  initialState,
   reducers: {
     search(state) {
       state.value = state.value + " Murmu";

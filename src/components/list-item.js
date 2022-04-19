@@ -1,19 +1,31 @@
+import { useState } from "react";
 import { HStack, Box, Image, Heading } from "@chakra-ui/react";
 
-const ListItem = () => {
+const ListItem = (props) => {
+  const [data, setData] = useState([]);
+
+  const getAPI = async () => {
+    const response = await fetch(
+      "http://www.omdbapi.com/?apikey=56cfe5f5&t=" + props.input
+    );
+    const value = await response.json();
+    setData(value);
+  };
+  getAPI();
+
   return (
     <HStack>
       <Image
         borderRadius="15px"
-        src={require("../styles/nishu.jpg")}
+        src={data.Poster}
         height="120px"
-        width="100px"
+        width="110px"
       />
       <Heading as="h4" padding="0px 10px">
-        This is a heading
+        {data.Title}
       </Heading>
       <Box fontSize="sm" align="left">
-        2022
+        {data.Year}
       </Box>
     </HStack>
   );
