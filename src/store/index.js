@@ -1,19 +1,12 @@
-import { createSlice ,configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import searchSlice from "./searchSlice.js";
+import displaySlice from "./displaySlice.js";
 
-const initialState = {counter: 0}
-
-const counterSlice = createSlice({
-    name: 'counter',
-    initialState,
-    reducers: {
-        increment(state) {
-            state.counter++
-        }
-    } 
-})
 const store = configureStore({
-    reducer: counterSlice.reducer
-})
+  reducer: {
+    display: displaySlice.reducer,
+    search: searchSlice.reducer,
+  },
+});
 
-export const counterActions = counterSlice.actions
-export default store
+export default store;
