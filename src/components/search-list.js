@@ -2,7 +2,6 @@ import { Box, List } from "@chakra-ui/react";
 
 //files
 import ListItem from "./list-item";
-import "../styles/search-list.css";
 
 const SearchList = (props) => {
   return (

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { SearchIcon, AddIcon } from "@chakra-ui/icons";
 import { Input, Button, HStack } from "@chakra-ui/react";
-import "../styles/search.css";
 
 const Search = (props) => {
   const [input, setInput] = useState("");
