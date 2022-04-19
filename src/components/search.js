@@ -1,5 +1,34 @@
-import '../styles/search.css'
-const Search = () => {
-    return (<div className="search">This is search element.</div>)
-}
-export default Search
+import { useState } from "react";
+import { SearchIcon, AddIcon } from "@chakra-ui/icons";
+import { Input, Button, HStack } from "@chakra-ui/react";
+import "../styles/search.css";
+
+const Search = (props) => {
+  const [input, setInput] = useState("");
+
+  props.onSubmitHandler(input);
+  return (
+    <HStack
+      justifyContent="center"
+      padding="40px"
+      borderBottom="1px solid grey"
+      className="display"
+    >
+      <Input
+        placeholder="Enter your keywords"
+        variant="flushed"
+        textColor="white"
+        fontSize="20px"
+        htmlSize={20}
+        width="auto"
+        value={input}
+        onInput={(e) => setInput(e.target.value)}
+      />
+      <Button leftIcon={<SearchIcon />}>Search</Button>
+      <Button float="right" leftIcon={<AddIcon />} marginLeft="200px">
+        Wishlist
+      </Button>
+    </HStack>
+  );
+};
+export default Search;
