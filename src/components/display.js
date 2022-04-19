@@ -26,6 +26,7 @@ const Display = (props) => {
     console.log(data);
     getAPI();
   }, [props.input, setData]);
+  const { Ratings } = data;
 
   return (
     <VStack className="display" height="100vh">
@@ -56,15 +57,19 @@ const Display = (props) => {
       </Box>
       <HStack margin="10px 0px" padding="20px">
         <Box textAlign="center" padding="10px 40px">
-          <h1 as="h6"></h1>
+          <h1 as="h6">{Ratings?.[0].Value}</h1>
           <Text>General Ratings</Text>
         </Box>
         <Box textAlign="center" padding="10px 40px">
-          <h2 as="h6"></h2>
+          <h2 as="h6">
+            {Ratings?.[1] === undefined ? "n/a" : Ratings?.[1].Value}
+          </h2>
           <Text>Rotten Tomatoes</Text>
         </Box>
         <Box textAlign="center" padding="10px 40px">
-          <h2 as="small"></h2>
+          <h2 as="small">
+            {Ratings?.[2] === undefined ? "n/a" : Ratings?.[2].Value}
+          </h2>
           <Text>Metacritic</Text>
         </Box>
       </HStack>
