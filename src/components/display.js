@@ -26,7 +26,9 @@ const Display = (props) => {
     console.log(data);
     getAPI();
   }, [props.input, setData]);
-  const { Ratings } = data;
+  const { Ratings, Title } = data;
+
+  const onAddHandler = () => {};
 
   return (
     <VStack className="display" height="100vh">
@@ -40,9 +42,11 @@ const Display = (props) => {
           width="280px"
         />
         <VStack padding="0px 20px">
-          <Button leftIcon={<AddIcon />}>Add to wishlist</Button>
+          <Button leftIcon={<AddIcon />} onAddClick={onAddHandler}>
+            Add to wishlist
+          </Button>
           <Heading as="h2" defaultValue="Movie/Series Title">
-            {data.Title}
+            {Title}
           </Heading>
           <Badge variant="outline" padding="0px 6px">
             {data.Rated}
@@ -58,7 +62,9 @@ const Display = (props) => {
       </Box>
       <HStack margin="10px 0px" padding="20px">
         <Box textAlign="center" padding="10px 40px">
-          <h1 as="h6">{Ratings?.[0].Value}</h1>
+          <h1 as="h6">
+            {Ratings?.[0] === undefined ? "n/a" : Ratings?.[0].Value}
+          </h1>
           <Text>General Ratings</Text>
         </Box>
         <Box textAlign="center" padding="10px 40px">

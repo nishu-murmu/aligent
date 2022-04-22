@@ -13,17 +13,6 @@ function App() {
     setInput(enteredInput);
   };
 
-  // useEffect(() => {
-  // const getAPI = async () => {
-  //   const response = await fetch(
-  //     "http://www.omdbapi.com/?apikey=56cfe5f5&t=" + input
-  //   );
-  //   const data = await response.json();
-  //   console.log(data.Poster);
-  // };
-  // getAPI();
-  // });
-
   return (
     <Fragment>
       <Search onSubmitHandler={inputHandler} />
